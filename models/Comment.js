@@ -1,4 +1,4 @@
-const mongoose = require(`mongoose`);
+const mongoose = require('mongoose');
 
 // Save a reference to the Schema constructor
 // eslint-disable-next-line prefer-destructuring
@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 
 // Using the Schema constructor, create a new UserSchema object
 // This is similar to a Sequelize model
-const NoteSchema = new Schema({
+const CommentSchema = new Schema({
   // `subject` is required and of type String
   subject: {
     type: String,
@@ -20,14 +20,14 @@ const NoteSchema = new Schema({
   },
 
   // `body` is required and of type String
-  body: {
+  comment: {
     type: String,
     required: true,
   },
 });
 
 // This creates our model from the above schema, using mongoose's model method
-const Note = mongoose.model(`Note`, NoteSchema);
+const Comment = mongoose.model('Comment', CommentSchema);
 
 // Export the Scrape model
-module.exports = Note;
+module.exports = Comment;
