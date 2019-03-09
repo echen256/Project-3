@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 
 // Using the Schema constructor, create a new UserSchema object
 // This is similar to a Sequelize model
-const CommentSchema = new Schema({
+const CommentsSchema = new Schema({
   // `subject` is required and of type String
   subject: {
     type: String,
@@ -27,7 +27,7 @@ const CommentSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-const Comment = mongoose.model('Comment', CommentSchema);
+const Comments = mongoose.model('Comments', CommentsSchema);
 
 // Export the Scrape model
-module.exports = Comment;
+module.exports = Comments;

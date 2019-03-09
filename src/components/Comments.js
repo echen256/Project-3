@@ -10,8 +10,9 @@ class Comments extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      article: [],
-      comments: [],
+      article: {
+        comments: [],
+      },
       subjectForm: '',
       authorForm: '',
       commentForm: '',
@@ -63,6 +64,7 @@ class Comments extends Component {
         authorForm: '',
         commentForm: '',
       });
+      window.location.reload();
     }
   };
 
@@ -101,7 +103,7 @@ class Comments extends Component {
                   <th>ISBN</th>
                   <th>Title</th>
                   <th>Author</th>
-                  <th>Description</th>
+                  <th>Summary</th>
                   <th>Published Date</th>
                   <th>Publisher</th>
                 </tr>
@@ -111,7 +113,7 @@ class Comments extends Component {
                   <td>{this.state.article.isbn}</td>
                   <td>{this.state.article.title}</td>
                   <td>{this.state.article.author}</td>
-                  <td>{this.state.article.description}</td>
+                  <td>{this.state.article.summary}</td>
                   <td>{this.state.article.published_date}</td>
                   <td>{this.state.article.publisher}</td>
                 </tr>
@@ -147,7 +149,7 @@ class Comments extends Component {
                 placeholder="Type in author!"
               />
             </div>
-            <label className="labelTitle">Body:</label>
+            <label className="labelTitle">Comment:</label>
             <div>
               <input
                 className="form-control"
@@ -165,6 +167,19 @@ class Comments extends Component {
               <button type="submit" onClick={this.handleFormSubmit}>
                 Save
               </button>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div>
+              {this.state.article.comments.map(comment => (
+                <div>
+                  <div>Subject: {comment.subject}</div>
+                  <div>Author: {comment.author}</div>
+                  <div>Comment: {comment.comment}</div>
+                  <div>======================</div>
+                </div>
+              ))}
             </div>
             <br />
           </div>

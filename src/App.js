@@ -51,7 +51,7 @@ class App extends Component {
                   <th>ISBN</th>
                   <th>Title</th>
                   <th>Author</th>
-                  <th>Description</th>
+                  <th>Summary</th>
                   <th>Published Date</th>
                   <th>Publisher</th>
                 </tr>
@@ -64,7 +64,7 @@ class App extends Component {
                     </td>
                     <td>{article.title}</td>
                     <td>{article.author}</td>
-                    <td>{article.description}</td>
+                    <td>{article.summary}</td>
                     <td>{article.published_date}</td>
                     <td>{article.publisher}</td>
                   </tr>
