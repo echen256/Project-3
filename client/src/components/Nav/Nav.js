@@ -7,6 +7,7 @@ import './nav.css';
 class Nav extends Component {
 
   render() {
+    console.log(this.props.loggedin);
     return <div>{this.props.loggedin ? <LoggedIn /> : <LoggedOut />}</div>;
   }
 }
