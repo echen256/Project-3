@@ -12,6 +12,11 @@ class LoggedOut extends Component {
         <Link className="navbar-brand" to="/">
           NYT ARTICLES AND BOOKS Searcher
         </Link>
+        <Link to="/login">
+              <button type="button" className="btn btn-info">
+                Login
+              </button>
+            </Link>
       </nav>
     );
   }

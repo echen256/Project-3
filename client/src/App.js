@@ -13,7 +13,7 @@ class App extends Component {
 
 
   state = {
-    loggedin: ''
+    loggedin: false
   }
 
   componentDidMount() {
@@ -22,23 +22,28 @@ class App extends Component {
 
   updateLogin (scope){
     scope.setState({loggedin : localStorage.getItem('jwtToken') !== null})
+    console.log(scope.state.loggedin);
   }
 
 
   render() {
+    console.log(this.state.loggedin);
     return (<Router>
       <div>
         <Nav loggedin = {this.state.loggedin} />
 
         <Switch>
 
-          <Route exact path="/(|articles)" component={Articles} />
+          
           <Route exact path="/savedArticles" component={SavedArticles} />
           <Route exact path="/savedArticles/:id" component={Comments} />
           <Route exact path="/recommendation" component={Recommendation} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/login"  render={(props) => <Login {...props} parent={this} updateLogin = {this.updateLogin}/>}/>
+
+          <Route exact path="/"  render=   {(props) => this.state.loggedin ? <Articles/> : <Login {...props} parent={this} updateLogin = {this.updateLogin}/>}/>
+          <Route exact path="/login" component = {Login}/>
           <Route component={NoMatch} />
+          <Route exact path="/(|articles)" component={Articles} />
         </Switch>
 
 
